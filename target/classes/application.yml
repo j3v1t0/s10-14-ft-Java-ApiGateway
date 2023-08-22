@@ -32,7 +32,7 @@ eureka:
   client:
     enabled: true
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: https://s10-14-ft-eurekaserver.azurewebsites.net/eureka/
 
 management:
   tracing:
