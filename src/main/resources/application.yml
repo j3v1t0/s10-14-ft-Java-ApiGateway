@@ -24,7 +24,8 @@ spring:
           enabled: true
       routes:
         - id: security
-          uri: lb://security
+          uri: https://s10-14-ft-api-security.azurewebsites.net
+          #uri: lb://security
           predicates:
             - Path=/**
 
@@ -39,7 +40,7 @@ management:
     sampling:
       probability: 1.0
 
-security:
-  service:
-    url: http://localhost:8081
+#security:
+  #service:
+    #url: http://localhost:8081
 ...
