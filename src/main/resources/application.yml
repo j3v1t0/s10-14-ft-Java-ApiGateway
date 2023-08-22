@@ -39,7 +39,7 @@ management:
     sampling:
       probability: 1.0
 
-#security:
-  #service:
-    #url: http://localhost:8081
+security:
+  service:
+    url: http://localhost:8081
 ...
