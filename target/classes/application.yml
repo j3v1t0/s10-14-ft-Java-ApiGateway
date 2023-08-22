@@ -24,10 +24,20 @@ spring:
           enabled: true
       routes:
         - id: security
-          uri: lb://security
+          uri: https://s10-14-ft-api-security.azurewebsites.net
+          #uri: lb://security
           predicates:
             - Path=/**
-
+        - id: eureka-server
+          uri: https://s10-14-ft-eurekaserver.azurewebsites.net
+          predicates:
+            - Path=/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/**
+          filters:
+            - JwtAuthenticationFilter
 eureka:
   client:
     enabled: true
@@ -39,7 +49,6 @@ management:
     sampling:
       probability: 1.0
 
-#security:
-  #service:
-    #url: http://localhost:8081
+jwt:
+  secret: RandomSecretKey123456789!RandomSecretKey123456789!RandomSecretKey123456789!
 ...
