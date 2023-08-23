@@ -33,15 +33,6 @@ spring:
               args:
                 name: security
                 fallbackuri: forward:/securityServiceFallback
-        - id: eureka-server
-          uri: https://s10-14-ft-eurekaserver.azurewebsites.net
-          predicates:
-            - Path=/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: eureka-server
-                fallbackuri: forward:/eurekaServiceFallback
         - id: user-service
           uri: lb://user-service
           predicates:

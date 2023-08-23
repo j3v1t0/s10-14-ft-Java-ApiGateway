@@ -15,8 +15,4 @@ public class FallBackController {
         return "User service is down!";
     }
 
-    @GetMapping("/eurekaServiceFallback")
-    public String eurekaFallback(){
-        return "Eureka service is down!";
-    }
 }
