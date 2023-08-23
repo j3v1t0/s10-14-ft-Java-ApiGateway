@@ -28,23 +28,14 @@ spring:
           #uri: lb://security
           predicates:
             - Path=/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: security
-                fallbackuri:
-                  forward: /securityServiceFallback
+
         - id: user-service
           uri: lb://user-service
           predicates:
             - Path=/**
           filters:
             - JwtAuthenticationFilter
-            - name: CircuitBreaker
-              args:
-                name: user-service
-                fallbackuri:
-                  forward: /userServiceFallback
+
 eureka:
   client:
     enabled: true
