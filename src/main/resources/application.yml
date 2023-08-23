@@ -24,16 +24,33 @@ spring:
           enabled: true
       routes:
         - id: security
-          uri: https://s10-14-ft-api-security.azurewebsites.net
-          #uri: lb://security
+          uri: lb://security-service # Usar balanceo de carga en lugar de ruta directa
           predicates:
             - Path=/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: security
+                fallbackuri: forward:/securityServiceFallback
+        - id: eureka-server
+          uri: lb://eureka-service # Usar balanceo de carga en lugar de ruta directa
+          predicates:
+            - Path=/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: eureka-server
+                fallbackuri: forward:/eurekaServiceFallback
         - id: user-service
           uri: lb://user-service
           predicates:
             - Path=/**
           filters:
             - JwtAuthenticationFilter
+            - name: CircuitBreaker
+              args:
+                name: user-service
+                fallbackuri: forward:/userServiceFallback
 eureka:
   client:
     enabled: true
