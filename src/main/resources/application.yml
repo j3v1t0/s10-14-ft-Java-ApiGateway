@@ -28,6 +28,8 @@ spring:
           #uri: lb://security
           predicates:
             - Path=/**
+          filters:
+            - JwtAuthenticationFilter
 
         - id: user-service
           uri: lb://user-service
