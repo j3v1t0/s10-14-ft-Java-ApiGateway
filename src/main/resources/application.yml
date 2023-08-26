@@ -19,14 +19,6 @@ spring:
             allowedOrigins: "*"
             allowedMethods: "*"
             allowedHeaders: "*"
-          '[https://s10-14-ft-api-gateway.azurewebsites.net/user-service.html]': # Ruta específica
-            allowedOrigins: "*"
-            allowedMethods: "GET" # Puedes ajustar esto según tus necesidades
-            allowedHeaders: "*"
-          '[https://s10-14-ft-api-gateway.azurewebsites.net/security.html]': # Ruta específica
-            allowedOrigins: "*"
-            allowedMethods: "GET" # Puedes ajustar esto según tus necesidades
-            allowedHeaders: "*"
       discovery:
         locator:
           enabled: true
@@ -47,7 +39,7 @@ spring:
           predicates:
             - Path=/v3/**
             - Path=/swagger-ui/**
-            - Path=/**.html
+            - Path=/**
         - id: user-service
           uri: https://s10-14-ft-api-users.azurewebsites.net
           predicates:
