@@ -30,7 +30,7 @@ spring:
             - Path=/api/accounts/current-session
           filters:
             - JwtAuthenticationFilter
-            -
+
         - id: security-login-register
           uri: https://s10-14-ft-api-security.azurewebsites.net
           #uri: lb://security
