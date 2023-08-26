@@ -23,13 +23,20 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: security
+        - id: security-current-session
           uri: https://s10-14-ft-api-security.azurewebsites.net
           #uri: lb://security
           predicates:
-            - Path=/**
+            - Path=/api/accounts/current-session
           filters:
             - JwtAuthenticationFilter
+            -
+        - id: security-login-register
+          uri: https://s10-14-ft-api-security.azurewebsites.net
+          #uri: lb://security
+          predicates:
+            - Path=/api/accounts/login
+            - Path=/api/accounts/register
 
         - id: user-service
           uri: lb://user-service
