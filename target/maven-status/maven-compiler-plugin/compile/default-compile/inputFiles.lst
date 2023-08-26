@@ -1,3 +1,6 @@
 /Volumes/Alfonso/NoCountry/s10-14-ft-Java-ApiGateway/src/main/java/com/example/apigateway/jwt/JwtProvider.java
 /Volumes/Alfonso/NoCountry/s10-14-ft-Java-ApiGateway/src/main/java/com/example/apigateway/ApiGatewayApplication.java
+/Volumes/Alfonso/NoCountry/s10-14-ft-Java-ApiGateway/src/main/java/com/example/apigateway/filters/JwtAuthenticationFilter.java
+/Volumes/Alfonso/NoCountry/s10-14-ft-Java-ApiGateway/src/main/java/com/example/apigateway/jwt/JwtProviderImpl.java
 /Volumes/Alfonso/NoCountry/s10-14-ft-Java-ApiGateway/src/main/java/com/example/apigateway/filters/CustomGlobalFilterExample.java
+/Volumes/Alfonso/NoCountry/s10-14-ft-Java-ApiGateway/src/main/java/com/example/apigateway/fallback/FallBackController.java

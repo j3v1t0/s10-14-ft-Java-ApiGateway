@@ -23,35 +23,29 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: security
+        - id: security-current-session
           uri: https://s10-14-ft-api-security.azurewebsites.net
           #uri: lb://security
           predicates:
-            - Path=/**
+            - Path=/api/accounts/current-session
           filters:
-            - name: CircuitBreaker
-              args:
-                name: security
-                fallbackuri: forward:/securityServiceFallback
-        - id: eureka-server
-          uri: https://s10-14-ft-eurekaserver.azurewebsites.net
+            - JwtAuthenticationFilter
+        - id: security-login-register
+          uri: https://s10-14-ft-api-security.azurewebsites.net
           predicates:
             - Path=/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: eureka-server
-                fallbackuri: forward:/eurekaServiceFallback
         - id: user-service
           uri: lb://user-service
           predicates:
             - Path=/**
           filters:
             - JwtAuthenticationFilter
-            - name: CircuitBreaker
-              args:
-                name: user-service
-                fallbackuri: forward:/userServiceFallback
+        - id: user-service-swagger
+          uri: lb://user-service
+          predicates:
+            - Path=/user-service.html
+            - Path=/swagger-ui/index.html
+
 eureka:
   client:
     enabled: true
