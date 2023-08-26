@@ -34,16 +34,16 @@ spring:
           uri: https://s10-14-ft-api-security.azurewebsites.net
           predicates:
             - Path=/**
-        - id: user-service-swagger
-          uri: https://s10-14-ft-api-users.azurewebsites.net
-          predicates:
-            - Path=/swagger-ui/**
         - id: user-service
           uri: https://s10-14-ft-api-users.azurewebsites.net
           predicates:
             - Path=/api/**
           filters:
             - JwtAuthenticationFilter
+        - id: user-service-swagger
+          uri: https://s10-14-ft-api-users.azurewebsites.net
+          predicates:
+            - Path=/**
 
 eureka:
   client:
