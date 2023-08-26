@@ -30,21 +30,22 @@ spring:
             - Path=/api/accounts/current-session
           filters:
             - JwtAuthenticationFilter
-        - id: security-login-register
+        - id: security
           uri: https://s10-14-ft-api-security.azurewebsites.net
           predicates:
             - Path=/**
-        - id: user-service
-          uri: lb://user-service
-          predicates:
-            - Path=/**
-          filters:
-            - JwtAuthenticationFilter
         - id: user-service-swagger
           uri: lb://user-service
           predicates:
             - Path=/user-service.html
             - Path=/swagger-ui/index.html
+
+        - id: user-service
+          uri: https://s10-14-ft-api-users.azurewebsites.net
+          predicates:
+            - Path=/**
+          filters:
+            - JwtAuthenticationFilter
 
 eureka:
   client:
