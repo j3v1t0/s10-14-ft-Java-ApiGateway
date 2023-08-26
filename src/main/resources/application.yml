@@ -37,7 +37,7 @@ spring:
         - id: user-service-swagger
           uri: https://s10-14-ft-api-users.azurewebsites.net
           predicates:
-            - Path=/**
+            - Path=/swagger-ui/**
         - id: user-service
           uri: https://s10-14-ft-api-users.azurewebsites.net
           predicates:
